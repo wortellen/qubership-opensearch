@@ -1,0 +1,9 @@
+global:
+  externalOpensearch:
+    enabled: true
+    url: "http://opensearch.aws"
+    username: "admin"
+    password: "admin"
+    nodesCount: 3
+    dataNodesCount: 3
+    tlsSecretName: ""
