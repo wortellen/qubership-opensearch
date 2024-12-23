@@ -2,6 +2,10 @@
 
 # Qubership OpenSearch
 
+Qubership OpenSearch is a comprehensive solution for deploying OpenSearch in Kubernetes with High Availability (HA), Disaster Recovery (DR), and Multi-AZ setups.
+Includes tools for backup management, monitoring, database as a service API and integration testing to ensure reliable operation and security.
+Designed for creating resilient and secure Consul clusters in a cloud-native environment.
+
 ## Repository structure
 
 * `./charts` - directory with main HELM chart for OpenSearch and integration tests.
