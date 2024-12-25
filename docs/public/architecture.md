@@ -1,6 +1,29 @@
 This chapter describes the architectural features of OpenSearch.
 <!-- #GFCFilterMarkerStart# -->
-[[_TOC_]]
+<!-- TOC -->
+* [Overview](#overview)
+  * [Qubership OpenSearch Delivery and Features](#qubership-opensearch-delivery-and-features)
+* [OpenSearch Components](#opensearch-components)
+  * [OpenSearch Operator](#opensearch-operator)
+  * [OpenSearch](#opensearch)
+  * [OpenSearch Curator](#opensearch-curator)
+  * [OpenSearch Monitoring](#opensearch-monitoring)
+  * [DBaaS Adapter](#dbaas-adapter)
+  * [OpenSearch Dashboard](#opensearch-dashboard)
+  * [Pod Scheduler](#pod-scheduler)
+  * [Status Provisioner](#status-provisioner)
+  * [Pre-Install Jobs](#pre-install-jobs)
+* [Supported Deployment Schemes](#supported-deployment-schemes)
+  * [On-Prem](#on-prem)
+    * [HA Joint Deployment Scheme](#ha-joint-deployment-scheme)
+    * [Non-HA Deployment Scheme](#non-ha-deployment-scheme)
+    * [HA Separated Deployment Scheme](#ha-separated-deployment-scheme)
+    * [DR Deployment Scheme](#dr-deployment-scheme)
+  * [Integration with Managed Services](#integration-with-managed-services)
+    * [Google Cloud](#google-cloud)
+    * [AWS OpenSearch](#aws-opensearch)
+    * [Azure](#azure)
+<!-- TOC -->
 <!-- #GFCFilterMarkerEnd# -->
 # Overview
 

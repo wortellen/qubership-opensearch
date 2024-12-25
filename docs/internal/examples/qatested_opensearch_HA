@@ -1,4 +1,3 @@
-DEPLOY_W_HELM: "true"
 global:
   tls:
     enabled: false
@@ -7,9 +6,7 @@ global:
       enabled: true
       certProvider: cert-manager
       durationDays: 365
-      clusterIssuerName: qa-issuer-self
-  velero:
-    preHookBackupEnabled: true
+      clusterIssuerName: example
 operator:
   replicas: 1
   resources:
@@ -45,7 +42,7 @@ opensearch:
         memory: 1536Mi
     javaOpts: -Xms768m -Xmx768m
     persistence:
-      storageClass: csi-cinder-sc-delete
+      storageClass: local-path
       size: 2Gi
   snapshots:
     enabled: true
@@ -55,10 +52,10 @@ opensearch:
     s3:
       enabled: true
       pathStyleAccess: true
-      url: http://test-minio-gateway-nas.qa-kubernetes.openshift.sdntest.qubership.org/
-      bucket: opensearch-qa-k8s
-      keyId: Z4nz2bxWnWM36lf3K21y
-      keySecret: oqtAdywaB7c7OJWHQ9rLVuJcKjpUR8iSJfXMPCLr
+      url: http://test-minio.qubership.org/
+      bucket: opensearch
+      keyId: example
+      keySecret: example
       basePath: ""
       region: ""
   client:
@@ -66,25 +63,9 @@ opensearch:
     ingress:
       enabled: true
       hosts:
-        - opensearch-opensearch-service.qa-kubernetes.openshift.sdntest.qubership.org
+        - opensearch-opensearch-service.qubership.org
 dbaasAdapter:
-  enabled: true
-  dbaasAdapterAddress: http://dbaas.opensearch-cluster:8080
-  dbaasAggregatorRegistrationAddress: http://dbaas-aggregator.dbaas:8080
-  dbaasAggregatorPhysicalDatabaseIdentifier: opensearch
-  opensearchRepo: snapshots
-  opensearchRepoRoot: /usr/share/opensearch/snapshots
-  opensearchPort: 9200
-  opensearchProtocol: http
-  dbaasUsername: dbaas-adapter
-  dbaasPassword: dbaas-adapter
-  registrationAuthUsername: user
-  registrationAuthPassword: pass
-  nodeSelector:
-    role: compute
-  securityContext:
-    runAsUser: 1000
-    fsGroup: 1000
+  enabled: false
 integrationTests:
   enabled: true
   tags: smoke
@@ -105,18 +86,17 @@ dashboards:
   ingress:
     enabled: true
     hosts:
-      - host: dashboards-opensearch-service.qa-kubernetes.openshift.sdntest.qubership.org
+      - host: dashboards-opensearch-service.qubership.org
         paths:
           - path: /
 curator:
   enabled: true
   backupSchedule: 0 * * * *
   evictionPolicy: 0/1d,7d/delete
-  username: backup
-  password: backup
+  username: example
+  password: example
   nodeSelector:
     role: compute
   securityContext:
     runAsUser: 1000
     fsGroup: 1000
-ESCAPE_SEQUENCE: "true"

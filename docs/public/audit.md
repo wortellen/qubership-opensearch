@@ -3,7 +3,14 @@ This chapter describes the security audit logging for OpenSearch.
 <!-- #GFCFilterMarkerStart# -->
 The following topics are covered in this chapter:
 
-[[_TOC_]]
+<!-- TOC -->
+* [Common Information](#common-information)
+* [Configuration](#configuration)
+  * [Example of Events](#example-of-events)
+    * [Login](#login)
+    * [Failed Login](#failed-login)
+    * [Unauthorized Event](#unauthorized-event)
+<!-- TOC -->
 <!-- #GFCFilterMarkerEnd# -->
 
 # Common Information

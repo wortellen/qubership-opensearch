@@ -3,7 +3,17 @@ This guide describes the data migration procedures for OpenSearch.
 <!-- #GFCFilterMarkerStart# -->
 The following topics are covered in this chapter:
 
-[[_TOC_]]
+<!-- TOC -->
+* [Prerequisites](#prerequisites)
+* [Transfer Data Schemes](#transfer-data-schemes)
+  * [Data Migration with Database Replacement](#data-migration-with-database-replacement)
+  * [Data Migration without Database Replacement](#data-migration-without-database-replacement)
+* [Transfer Snapshots Data Between Storages](#transfer-snapshots-data-between-storages)
+  * [Transfer From NFS to NFS](#transfer-from-nfs-to-nfs)
+  * [Transfer From NFS to S3](#transfer-from-nfs-to-s3)
+  * [Transfer From S3 to NFS](#transfer-from-s3-to-nfs)
+  * [Transfer From S3 to S3](#transfer-from-s3-to-s3)
+<!-- TOC -->
 <!-- #GFCFilterMarkerEnd# -->
 
 # Prerequisites

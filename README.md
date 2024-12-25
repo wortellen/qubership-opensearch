@@ -1,10 +1,24 @@
-[[_TOC_]]
+<!-- TOC -->
+* [Qubership OpenSearch](#qubership-opensearch)
+  * [Repository structure](#repository-structure)
+  * [How to start](#how-to-start)
+    * [Deploy to k8s](#deploy-to-k8s)
+      * [Pure helm](#pure-helm)
+    * [Smoke tests](#smoke-tests)
+    * [How to debug](#how-to-debug)
+      * [VSCode](#vscode)
+    * [How to troubleshoot](#how-to-troubleshoot)
+  * [Evergreen strategy](#evergreen-strategy)
+  * [Useful links](#useful-links)
+<!-- TOC -->
 
 # Qubership OpenSearch
 
 Qubership OpenSearch is a comprehensive solution for deploying OpenSearch in Kubernetes with High Availability (HA), Disaster Recovery (DR), and Multi-AZ setups.
 Includes tools for backup management, monitoring, database as a service API and integration testing to ensure reliable operation and security.
-Designed for creating resilient and secure Consul clusters in a cloud-native environment.
+Designed for creating resilient and secure OpenSearch clusters in a cloud-native environment.
+
+![Application Overview](/docs/public/images/opensearch_components_overview.drawio.png)
 
 ## Repository structure
 
@@ -77,5 +91,6 @@ To keep the component up to date, the following activities should be performed r
 ## Useful links
 
 * [Installation guide](/docs/public/installation.md).
+* [Architecture guide](/docs/public/architecture.md).
 * [Troubleshooting guide](/docs/public/troubleshooting.md).
 * [Internal Developer Guide](/docs/internal/developing.md).
