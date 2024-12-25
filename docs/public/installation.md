@@ -89,12 +89,6 @@ The following topics are covered in this chapter:
     * [Affinity](#affinity)
       * [Replicas Fewer Than Availability Zones](#replicas-fewer-than-availability-zones)
       * [Replicas More Than Availability Zones](#replicas-more-than-availability-zones)
-* [Frequently Asked Questions](#frequently-asked-questions)
-  * [What to Do if a Kubernetes Version Is Upgraded Before Application?](#what-to-do-if-a-kubernetes-version-is-upgraded-before-application)
-  * [Deployer Job Failed With Status Check but Application Works Fine](#deployer-job-failed-with-status-check-but-application-works-fine)
-  * [Deployer Job Failed With Unknown Fields in Opensearchservices.qubership.org](#deployer-job-failed-with-unknown-fields-in-opensearchservicesqubershiporg)
-  * [Deployer Job Failed With an Error in Templates](#deployer-job-failed-with-an-error-in-templates)
-  * [Deployer Job Fails With "Forbidden: updates to statefulset spec for fields..." Error](#deployer-job-fails-with-forbidden-updates-to-statefulset-spec-for-fields-error)
 <!-- TOC -->
 <!-- #GFCFilterMarkerEnd# -->
 
@@ -108,6 +102,9 @@ Before you start the installation and configuration of an OpenSearch cluster, en
 * `kubectl` 1.21+ or `oc` 4.10+ CLI
 * Helm 3.0+
 * All required CRDs are installed
+  
+Note the following terms:
+* `DEPLOY_W_HELM` means installation is performed with `helm install/upgrade` commands, not `helm template + kubectl apply`.
 
 ### Custom Resource Definitions
 
