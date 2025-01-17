@@ -691,6 +691,8 @@ opensearch:
       keySecret: ""
       basePath: ""
       region: ""
+      sslSecretName: ""
+      sslCert: ""
       gcs:
         secretName: ""
         secretKey: ""
