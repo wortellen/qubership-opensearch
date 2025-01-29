@@ -237,6 +237,14 @@ func (rm ReplicationManager) Start() error {
 }
 
 func (rm ReplicationManager) RemoveReplicationRule() error {
+	rule, err := rm.GetAutoFollowRuleStats()
+	if err != nil {
+		return fmt.Errorf(fmt.Sprintf("failed to get replication rule, reason: %e", err))
+	}
+	if rule == nil {
+		rm.logger.Info("Skipping replication rule removal since its does not exist")
+		return nil
+	}
 	body := fmt.Sprintf(`{"leader_alias": "%s","name": "%s"}`, leaderAlias, replicationName)
 	statusCode, _, err := rm.restClient.SendRequest(http.MethodDelete, startFullReplicationPath, strings.NewReader(body))
 	if err != nil {
