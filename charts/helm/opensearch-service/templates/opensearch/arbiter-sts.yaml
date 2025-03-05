@@ -215,6 +215,8 @@ spec:
             - containerPort: 9650
               name: rca
           volumeMounts:
+            - mountPath: /usr/share/opensearch/credentials
+              name: credentials
             - mountPath: /usr/share/opensearch/data
               name: pvc
               subPath: {{ .Values.opensearch.arbiter.persistence.subPath }}
@@ -303,6 +305,9 @@ spec:
         - name: config
           secret:
             secretName: {{ template "opensearch.fullname" . }}-config
+        - name: credentials
+          secret:
+            secretName:  {{ template "opensearch.fullname" . }}-secret-old
         - name: transport-certs
           secret:
             secretName: {{ template "opensearch.transport-cert-secret-name" . }}
