@@ -95,3 +95,30 @@ jobs:
           package-type: 'container'
           package-version-ids: ${{ steps.get-ids-for-delete.outputs.ids-for-delete }}
         if: ${{ steps.get-ids-for-delete.outputs.ids-for-delete != '' }}
+
+  update_values:
+    needs: multiplatform_build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Update image tags in values.yaml
+        run: |
+          sudo snap install yq
+          yq -i '.operator.dockerImage = "ghcr.io/netcracker/qubership-opensearch-operator:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.opensearch.dockerImage = "ghcr.io/netcracker/qubership-docker-opensearch:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.opensearch.dockerTlsInitImage = "ghcr.io/netcracker/qubership-opensearch-tls-init:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.monitoring.dockerImage = "ghcr.io/netcracker/qubership-opensearch-monitoring:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.dbaasAdapter.dockerImage = "ghcr.io/netcracker/qubership-opensearch-dbaas-adapter:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.curator.dockerImage = "ghcr.io/netcracker/qubership-opensearch-curator:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.curator.dockerIndicesCleanerImage = "ghcr.io/netcracker/qubership-opensearch-indices-cleaner:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.integrationTests.dockerImage = "ghcr.io/netcracker/qubership-opensearch-integration-tests:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.global.disasterRecovery.image = "ghcr.io/netcracker/disaster-recovery-daemon:main"' charts/helm/opensearch-service/values.yaml
+          yq -i '.statusProvisioner.dockerImage = "ghcr.io/netcracker/qubership-deployment-status-provisioner:main"' charts/helm/opensearch-service/values.yaml
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git commit -am "Update image tags in values.yaml"
+          git push
